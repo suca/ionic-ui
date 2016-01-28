@@ -1,0 +1,17 @@
+{
+  "name": "ionic",
+  "description": "Testing ionic ui",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "js"
+  ],
+  "authors": [
+    "omarsucap100@gmail.com"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "devDependencies": {
+    "bower-ionic": "~v1.1.1"
+  }
+}

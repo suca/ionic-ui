@@ -1,0 +1,12 @@
+{
+  "name": "ionic-ui",
+  "version": "1.0.0",
+  "description": "Ionic ui testing",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "bower": "latest",
+    "gulp": "latest",
+    "gulp-util": "latest",
+    "gulp-connect": "latest"
+  }
+}
