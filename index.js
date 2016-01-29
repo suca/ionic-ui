@@ -69,7 +69,8 @@ angular.module('ionicApp', ['ionic'])
       url: "/contact",
       views: {
         'contact-tab': {
-          templateUrl: "templates/contact.html"
+          templateUrl: "templates/contact.html",
+          controller: 'DataTabCtrl'
         }
       }
     });
@@ -87,10 +88,61 @@ angular.module('ionicApp', ['ionic'])
     }).then(function(modal) {
       $scope.modal = modal;
     });
-  $scope.openModal = function(){
-    $scope.modal.show();
-  }
-  $scope.closeModal = function(){
-    $scope.modal.hide();
-  }
+    $scope.openModal = function(){
+      $scope.modal.show();
+    }
+    $scope.closeModal = function(){
+      $scope.modal.hide();
+    }
+})
+
+
+.controller('DataTabCtrl', function($scope, $ionicModal, $http,$ionicLoading, $timeout) {
+      // Setup the loader
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 150,
+    showDelay: 0
+  });
+  
+
+$scope.noMoreItemsAvailable = false;
+  $scope.items = [];
+  $scope.itemsDisplayed = 7;
+  $scope.originalItems = [];
+
+  $scope.loadMore = function() {
+    
+    if ($scope.originalItems.length) {
+      $scope.itemsDisplayed +=7;
+      
+      $timeout(function(){
+        $scope.items = $scope.items.concat($scope.originalItems.splice(0, 7));
+      }, 2000)
+      
+      
+      if ( $scope.items.length > $scope.itemsDisplayed ) {
+        $scope.noMoreItemsAvailable = true;
+      }
+      
+    }
+    $scope.$broadcast('scroll.infiniteScrollComplete');
+    
+  };
+  
+  
+
+  $.ajax({
+    type: "get",
+    dataType: "json",
+    url: "http://restcountries.eu/rest/v1/name/a"
+  }).done(function(response) {
+    $scope.originalItems = response;
+    $scope.items = $scope.originalItems.splice(0,7);
+      $ionicLoading.hide();
+  });
+
+
 });

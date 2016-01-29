@@ -7,6 +7,8 @@
     "bower": "latest",
     "gulp": "latest",
     "gulp-util": "latest",
+    "gulp-copy": "^0.0.2",
+    "gulp-concat": "^2.2.0",
     "gulp-connect": "latest"
   }
 }
