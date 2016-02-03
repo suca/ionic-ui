@@ -11,18 +11,19 @@ gulp.task('connect', function () {
   });
 });
 
-gulp.task('default', ['index', 'buildJS', 'buildCSS', 'fonts']);
+gulp.task('default', ['index', 'buildJS', 'buildCSS', 'fonts', 'libJS']);
 
 filesHTML = ['./page1.html',
-          './page2.html',
-          './page3.html',
-          './page4.html'];
+            './page1.html',
+            './page2.html',
+            './page3.html',
+            './page4.html',
+            './page5.html'];
 gulp.task('index', function () {
   return gulp
-    .src('index.html')
+    .src(filesHTML)
     .pipe(gulp.dest(builtFolder + "/html"));
 });
-
 
 filesJS = ['./bower_components/bower-ionic/js/ionic.bundle.min.js',
           './index.js'];
@@ -30,6 +31,15 @@ filesJS = ['./bower_components/bower-ionic/js/ionic.bundle.min.js',
 gulp.task('buildJS', function () {
   return gulp.src(filesJS)
     .pipe(concat('build.js'))
+    .pipe(gulp.dest(builtFolder + "/resources/js"));
+});
+
+libJS = [
+  './bower_components/bower-ionic/js/ionic.bundle.min.js'
+];
+gulp.task('libJS', function () {
+  return gulp.src(libJS)
+    .pipe(concat('lib.js'))
     .pipe(gulp.dest(builtFolder + "/resources/js"));
 });
 
