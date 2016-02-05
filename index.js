@@ -131,8 +131,6 @@ $scope.noMoreItemsAvailable = false;
     $scope.$broadcast('scroll.infiniteScrollComplete');
     
   };
-  
-  
 
   $.ajax({
     type: "get",

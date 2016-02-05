@@ -28,7 +28,7 @@
   <script id="templates/tabs.html" type="text/ng-template">
     <ion-tabs class="tabs-icon-top tabs-positive">
 
-      <ion-tab title="About" icon="ion-ios-football" href="#/tab/about">
+      <ion-tab title="List" icon="ion-ios-football" href="#/tab/about">
         <ion-nav-view name="about-tab"></ion-nav-view>
       </ion-tab>
 
@@ -304,11 +304,25 @@
   </script>
 
   <script id="templates/about.html" type="text/ng-template">
-    <ion-view view-title="About">
+    <ion-view view-title="List">
       <ion-content class="padding">
-        <p>More and more is coming with Ionic. ;)</p>
         <p>
-          <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Some cards</a>
+          <div class="card">
+        <div class="item item-text-wrap">
+          This is a basic Card which contains an item that has wrapping text.
+        </div>
+      </div>
+      <div class="card">
+        <div class="item item-text-wrap">
+          This is a basic Card which contains an item that has wrapping text.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-text-wrap">
+          This is a basic Card which contains an item that has wrapping text.
+        </div>
+      </div>
         </p>
       </ion-content>
     </ion-view>
